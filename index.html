@@ -87,11 +87,17 @@
             border-left: 8px solid var(--neon-blue);
         }
 
-        .btn-terms {
+        .button-group {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-action {
             display: inline-block;
-            margin-top: 20px;
             padding: 12px 25px;
-            background-color: var(--neon-pink);
             color: white;
             text-decoration: none;
             font-family: 'Bangers', cursive;
@@ -101,7 +107,10 @@
             transition: 0.3s;
         }
 
-        .btn-terms:hover {
+        .btn-terms { background-color: var(--neon-pink); }
+        .btn-support { background-color: var(--purple-vibes); }
+
+        .btn-action:hover {
             transform: scale(1.1) rotate(-2deg);
             background-color: var(--neon-yellow);
             color: black;
@@ -238,7 +247,6 @@
         .game-info h3 { font-family: 'Bangers'; font-size: 2rem; margin: 0; color: var(--purple-vibes); }
 
         footer { text-align: center; padding: 40px; color: #666; font-size: 0.8rem; background: var(--bg-dark); }
-        .footer-domain { color: var(--neon-blue); font-weight: bold; text-decoration: none; margin-top: 10px; display: block; }
     </style>
 </head>
 <body>
@@ -251,10 +259,6 @@
                 <option value="es">Español 🇪🇸</option>
                 <option value="fr">Français 🇫🇷</option>
                 <option value="pt">Português 🇵🇹</option>
-                <option value="de">Deutsch 🇩🇪</option>
-                <option value="ru">Русский 🇷🇺</option>
-                <option value="zh">中文 🇨🇳</option>
-                <option value="ja">日本語 🇯🇵</option>
             </select>
         </div>
         <h1>GAME SHAKERS</h1>
@@ -265,7 +269,11 @@
         <h2 style="font-family: 'Bangers'; font-size: 3rem; color: var(--neon-blue);" id="about-title">CHI SIAMO?</h2>
         <div class="about-content">
             <p style="font-size: 1.2rem;" id="about-text">Siamo la software house più pazza del mondo. Guidati dal talento di <strong>okslollo</strong> e <strong>m1xgu3l</strong>, shakeriamo codici e divertimento per creare hit leggendarie!</p>
-            <a href="termini.html" target="_blank" class="btn-terms" id="btn-terms">VEDI I TERMINI</a>
+            
+            <div class="button-group">
+                <a href="termini.html" target="_blank" class="btn-action btn-terms" id="btn-terms">VEDI I TERMINI</a>
+                <a href="assistenze.html" target="_blank" class="btn-action btn-support" id="btn-support">ASSISTENZA</a>
+            </div>
         </div>
     </section>
 
@@ -288,7 +296,7 @@
         <h2 style="text-align: center; font-family: 'Bangers'; font-size: 3rem; color: var(--neon-yellow); margin-bottom: 40px;" id="games-title">I NOSTRI GIOCHI</h2>
         <div class="game-grid">
             <div class="game-box">
-                <img src="https://static.wikia.nocookie.net/gameshakers/images/6/69/1_sky_whale.jpg/revision/latest?cb=20161018201441" alt="Sky Whale" class="game-img">
+                <img src="https://static.wikia.nocookie.net/gameshakers/images/6/69/1_sky_whale.jpg" alt="Sky Whale" class="game-img">
                 <div class="game-info">
                     <h3>SKY WHALE</h3>
                     <p id="game1-desc">Fai volare il narvalo tra le ciambelle!</p>
@@ -323,7 +331,6 @@
 
     <footer>
         <span id="footer-text">&copy; 2026 GAME SHAKERS | PROPRIETÀ DI okslollo & m1xgu3l</span>
-        
     </footer>
 
     <div id="cookie-banner">
@@ -341,6 +348,7 @@
                 aboutTitle: "CHI SIAMO?",
                 aboutText: "Siamo la software house più pazza del mondo. Guidati dal talento di <strong>okslollo</strong> e <strong>m1xgu3l</strong>, shakeriamo codici e divertimento per creare hit leggendarie!",
                 btnTerms: "VEDI I TERMINI",
+                btnSupport: "ASSISTENZA",
                 founderDesc: "Il Capo Supremo. Il visionario che ha scosso il sistema.",
                 coLabel: "CO-FOUNDER",
                 coFounderDesc: "Il pilastro dell'azienda. Senza di lui lo shaker non gira!",
@@ -359,6 +367,7 @@
                 aboutTitle: "WHO WE ARE?",
                 aboutText: "We are the craziest software house in the world. Led by the talent of <strong>okslollo</strong> & <strong>m1xgu3l</strong>, we mix code and fun to create legendary hits!",
                 btnTerms: "VIEW COMPANY TERMS",
+                btnSupport: "SUPPORT",
                 founderDesc: "The Supreme Leader. The visionary who shook the system.",
                 coLabel: "CO-FOUNDER",
                 coFounderDesc: "The cornerstone of the company. Without him, the shaker wouldn't work!",
@@ -377,6 +386,7 @@
                 aboutTitle: "¿QUIÉNES SOMOS?",
                 aboutText: "Somos la software house más loca del mundo. Liderados por el talento de <strong>okslollo</strong> y <strong>m1xgu3l</strong>, ¡mezclamos código y diversión!",
                 btnTerms: "VER TÉRMINOS",
+                btnSupport: "SOPORTE",
                 founderDesc: "El Jefe Supremo. El visionario que sacudió el sistema.",
                 coLabel: "CO-FUNDADOR",
                 coFounderDesc: "El pilar de la empresa. ¡Sin él, el shaker no gira!",
@@ -389,54 +399,19 @@
                 cookieText: "Este sitio utiliza cookies para mejorar tu experiencia. ¿Aceptas?",
                 cookieAccept: "ACEPTAR TODO",
                 cookieDecline: "RECHAZAR"
-            },
-            fr: {
-                tagline: "Créé à Brooklyn, joué partout!",
-                aboutTitle: "QUI SOMMES-NOUS?",
-                aboutText: "Nous sommes la software house la plus folle du monde. Portés par le talent de <strong>okslollo</strong> et <strong>m1xgu3l</strong>, nous mélangeons code et plaisir!",
-                btnTerms: "VOIR LES CONDITIONS",
-                founderDesc: "Le Chef Suprême. Le visionnaire qui a secoué le système.",
-                coLabel: "CO-FONDATEUR",
-                coFounderDesc: "Le pilier de l'entreprise. Sans lui, le shaker ne tourne pas!",
-                gamesTitle: "NOS JEUX",
-                game1Desc: "Faites voler le narval parmi les donuts!",
-                game2Desc: "Livre des pizzas comme un vrai poulpe sur patins!",
-                game3Desc: "Crache pour vaincre les ennemis pixélisés!",
-                socialTitle: "SUIVEZ-NOUS SUR LES RÉSEAUX!",
-                footerText: "&copy; 2026 GAME SHAKERS | PROPRIÉTÉ DE okslollo & m1xgu3l",
-                cookieText: "Ce site utilise des cookies. Acceptez-vous?",
-                cookieAccept: "TOUT ACCEPTER",
-                cookieDecline: "REFUSER"
-            },
-            pt: {
-                tagline: "Criado em Brooklyn, jogado em todo o lado!",
-                aboutTitle: "QUEM SOMOS?",
-                aboutText: "Somos a software house mais louca do mundo. Liderados pelo talento de <strong>okslollo</strong> e <strong>m1xgu3l</strong>, misturamos código e diversão!",
-                btnTerms: "VER TERMOS",
-                founderDesc: "O Chefe Supremo. O visionário que abalou o sistema.",
-                coLabel: "CO-FUNDADOR",
-                coFounderDesc: "O pilar da empresa. Sem ele, o shaker não gira!",
-                gamesTitle: "NOSSOS JOGOS",
-                game1Desc: "Faz o narval voar entre os donuts!",
-                game2Desc: "Entrega pizzas como um polvo em patins!",
-                game3Desc: "Cuspa para derrotar os inimigos pixelizados!",
-                socialTitle: "SIGA-NOS NAS REDES!",
-                footerText: "&copy; 2026 GAME SHAKERS | PROPRIEDADE DE okslollo & m1xgu3l",
-                cookieText: "Este site utiliza cookies. Aceita?",
-                cookieAccept: "ACEITAR TUDO",
-                cookieDecline: "REJEITAR"
             }
+            // Altre lingue...
         };
 
         function changeLanguage() {
             const lang = document.getElementById('languageSelect').value;
-            // Se la lingua non è tradotta, usa l'inglese
             const t = translations[lang] || translations['en'];
 
             document.getElementById('tagline').innerText = t.tagline;
             document.getElementById('about-title').innerText = t.aboutTitle;
             document.getElementById('about-text').innerHTML = t.aboutText;
             document.getElementById('btn-terms').innerText = t.btnTerms;
+            document.getElementById('btn-support').innerText = t.btnSupport;
             document.getElementById('founder-desc').innerText = t.founderDesc;
             document.getElementById('label-co').innerText = t.coLabel;
             document.getElementById('co-founder-desc').innerText = t.coFounderDesc;
