@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Terms | Game Shakers</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;700&display=swap');
+        
+        :root {
+            --neon-blue: #00d2ff;
+            --neon-pink: #ff007f;
+            --neon-yellow: #f9ff00;
+            --bg-dark: #121212;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: white;
+            padding: 40px;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        /* Selettore Lingua */
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .lang-switcher select {
+            background: var(--bg-dark);
+            color: var(--neon-yellow);
+            border: 2px solid var(--neon-blue);
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            max-width: 150px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border-top: 8px solid var(--neon-pink);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 { 
+            font-family: 'Bangers', cursive; 
+            color: var(--neon-blue); 
+            font-size: clamp(2.5rem, 8vw, 3.5rem); 
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        h2 { 
+            color: var(--neon-yellow); 
+            margin-top: 35px; 
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+        }
+
+        p { color: #ccc; }
+
+        .back-link { 
+            color: var(--neon-pink); 
+            text-decoration: none; 
+            font-weight: bold; 
+            display: inline-block; 
+            margin-top: 40px;
+            font-family: 'Bangers', cursive;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--neon-yellow);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-switcher">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="it">Italiano 🇮🇹</option>
+            <option value="en">English 🇺🇸</option>
+            <option value="es">Español 🇪🇸</option>
+            <option value="fr">Français 🇫🇷</option>
+            <option value="pt">Português 🇵🇹</option>
+            <option value="de">Deutsch 🇩🇪</option>
+            <option value="ru">Русский 🇷🇺</option>
+            <option value="zh">中文 🇨🇳</option>
+            <option value="ja">日本語 🇯🇵</option>
+        </select>
+    </div>
+
+    <div class="container">
+        <h1 id="title">TERMINI GAME SHAKERS</h1>
+        <p id="last-update">Ultimo aggiornamento: Febbraio 2026</p>
+        
+        <h2 id="h2-prop">1. PROPRIETÀ</h2>
+        <p id="p-prop">Game Shakers è uno studio di sviluppo indipendente di proprietà esclusiva di <strong>okslollo</strong> e <strong>m1xgu3l</strong>.</p>
+
+        <h2 id="h2-copy">2. DIRITTI D'AUTORE</h2>
+        <p id="p-copy">Tutti i giochi presenti sul sito, inclusi Sky Whale, Octopie e Llama Spit Spit, sono protetti da copyright aziendale.</p>
+
+        <h2 id="h2-use">3. USO DEI CONTENUTI</h2>
+        <p id="p-use">È vietata la riproduzione non autorizzata del codice, dei loghi o delle grafiche senza il consenso scritto dei Founder.</p>
+
+        <h2 id="h2-priv">4. PRIVACY & COOKIE</h2>
+        <p id="p-priv">Rispettiamo la tua privacy. I dati raccolti servono solo a migliorare la tua esperienza di gioco nello stile Game Shakers!</p>
+
+        <a href="index.html" class="back-link" id="back-btn">← TORNA ALLA HOME</a>
+    </div>
+
+    <script>
+        const translations = {
+            it: {
+                title: "TERMINI GAME SHAKERS",
+                update: "Ultimo aggiornamento: Febbraio 2026",
+                h2Prop: "1. PROPRIETÀ",
+                pProp: "Game Shakers è uno studio di sviluppo indipendente di proprietà esclusiva di <strong>okslollo</strong> e <strong>m1xgu3l</strong>.",
+                h2Copy: "2. DIRITTI D'AUTORE",
+                pCopy: "Tutti i giochi presenti sul sito, inclusi Sky Whale, Octopie e Llama Spit Spit, sono protetti da copyright aziendale.",
+                h2Use: "3. USO DEI CONTENUTI",
+                pUse: "È vietata la riproduzione non autorizzata del codice, dei loghi o delle grafiche senza il consenso scritto dei Founder.",
+                h2Priv: "4. PRIVACY & COOKIE",
+                pPriv: "Rispettiamo la tua privacy. I dati raccolti servono solo a migliorare la tua esperienza di gioco nello stile Game Shakers!",
+                back: "← TORNA ALLA HOME"
+            },
+            en: {
+                title: "GAME SHAKERS TERMS",
+                update: "Last update: February 2026",
+                h2Prop: "1. OWNERSHIP",
+                pProp: "Game Shakers is an independent development studio exclusively owned by <strong>okslollo</strong> and <strong>m1xgu3l</strong>.",
+                h2Copy: "2. COPYRIGHT",
+                pCopy: "All games on this site, including Sky Whale, Octopie, and Llama Spit Spit, are protected by company copyright.",
+                h2Use: "3. CONTENT USE",
+                pUse: "Unauthorized reproduction of code, logos, or graphics is prohibited without written consent from the Founders.",
+                h2Priv: "4. PRIVACY & COOKIES",
+                pPriv: "We respect your privacy. Collected data is only used to improve your gaming experience in true Game Shakers style!",
+                back: "← BACK TO HOME"
+            },
+            es: {
+                title: "TÉRMINOS DE GAME SHAKERS",
+                update: "Última actualización: Febrero 2026",
+                h2Prop: "1. PROPIEDAD",
+                pProp: "Game Shakers es un estudio de desarrollo independiente propiedad exclusiva de <strong>okslollo</strong> y <strong>m1xgu3l</strong>.",
+                h2Copy: "2. DERECHOS DE AUTOR",
+                pCopy: "Todos los juegos en este sitio, incluidos Sky Whale, Octopie y Llama Spit Spit, están protegidos por derechos de autor de la empresa.",
+                h2Use: "3. USO DE CONTENIDO",
+                pUse: "Se prohíbe la reproducción no autorizada del código, logotipos o gráficos sin el consentimiento por escrito de los fundadores.",
+                h2Priv: "4. PRIVACIDAD Y COOKIES",
+                pPriv: "Respetamos tu privacidad. ¡Los datos recopilados solo se utilizan para mejorar tu experiencia de juego al estilo Game Shakers!",
+                back: "← VOLVER AL INICIO"
+            },
+            fr: {
+                title: "CONDITIONS DE GAME SHAKERS",
+                update: "Dernière mise à jour : Février 2026",
+                h2Prop: "1. PROPRIÉTÉ",
+                pProp: "Game Shakers est un studio de développement indépendant propriété exclusive de <strong>okslollo</strong> et <strong>m1xgu3l</strong>.",
+                h2Copy: "2. DROITS D'AUTEUR",
+                pCopy: "Tous les jeux présents sur le site, y compris Sky Whale, Octopie et Llama Spit Spit, sont protégés par le droit d'auteur de l'entreprise.",
+                h2Use: "3. UTILISATION DU CONTENU",
+                pUse: "La reproduction non autorisée du code, des logos ou des graphiques est interdite sans le consentement écrit des fondateurs.",
+                h2Priv: "4. CONFIDENTIALITÉ ET COOKIES",
+                pPriv: "Nous respectons votre vie privée. Les données collectées ne servent qu'à améliorer votre expérience de jeu dans le style Game Shakers !",
+                back: "← RETOUR À L'ACCUEIL"
+            },
+            pt: {
+                title: "TERMOS DA GAME SHAKERS",
+                update: "Última atualização: Fevereiro 2026",
+                h2Prop: "1. PROPRIEDADE",
+                pProp: "A Game Shakers é um estúdio de desenvolvimento independente de propriedade exclusiva de <strong>okslollo</strong> e <strong>m1xgu3l</strong>.",
+                h2Copy: "2. DIREITOS AUTORAIS",
+                pCopy: "Todos os jogos no site, incluindo Sky Whale, Octopie e Llama Spit Spit, são protegidos pelos direitos autorais da empresa.",
+                h2Use: "3. USO DE CONTEÚDO",
+                pUse: "A reprodução não autorizada do código, logotipos ou gráficos é proibida sem o consentimento por escrito dos fundadores.",
+                h2Priv: "4. PRIVACIDADE E COOKIES",
+                pPriv: "Respeitamos a sua privacidade. Os dados recolhidos servem apenas para melhorar a sua experiência de jogo no estilo Game Shakers!",
+                back: "← VOLTAR PARA A HOME"
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById('languageSelect').value;
+            // Se la lingua selezionata non è in 'translations', usa l'inglese come base
+            const t = translations[lang] || translations['en'];
+
+            document.getElementById('title').innerText = t.title;
+            document.getElementById('last-update').innerText = t.update;
+            document.getElementById('h2-prop').innerText = t.h2Prop;
+            document.getElementById('p-prop').innerHTML = t.pProp;
+            document.getElementById('h2-copy').innerText = t.h2Copy;
+            document.getElementById('p-copy').innerText = t.pCopy;
+            document.getElementById('h2-use').innerText = t.h2Use;
+            document.getElementById('p-use').innerText = t.pUse;
+            document.getElementById('h2-priv').innerText = t.h2Priv;
+            document.getElementById('p-priv').innerText = t.pPriv;
+            document.getElementById('back-btn').innerText = t.back;
+        }
+    </script>
+</body>
+</html>
