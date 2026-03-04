@@ -24,11 +24,36 @@
             padding: 0;
         }
 
+        /* Stile per il selettore di lingua */
+        .lang-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        #lang-select {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: 2px solid var(--neon-blue);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        #lang-select:hover {
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
         header {
             background: linear-gradient(135deg, var(--purple-vibes), #2c003e);
             padding: 60px 20px;
             text-align: center;
             border-bottom: 5px solid var(--neon-blue);
+            position: relative;
         }
 
         .container {
@@ -65,7 +90,6 @@
             box-shadow: 0 0 10px #00ff00;
         }
 
-        /* Support Cards */
         .support-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -92,7 +116,6 @@
             margin-top: 0;
         }
 
-        /* FAQ Section */
         .faq-section {
             margin-top: 60px;
         }
@@ -129,7 +152,6 @@
             line-height: 1.6;
         }
 
-        /* Form */
         .contact-form {
             background: #111;
             padding: 40px;
@@ -193,12 +215,18 @@
 <body>
 
     <header>
-        <h1>CENTRO ASSISTENZA</h1>
-        <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">Supporto Tecnico Ufficiale Game Shakers</p>
+        <div class="lang-container">
+            <select id="lang-select">
+                <option value="it">IT 🇮🇹</option>
+                <option value="en">EN 🇺🇸</option>
+            </select>
+        </div>
+
+        <h1 id="main-title">CENTRO ASSISTENZA</h1>
+        <p id="sub-title" style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">Supporto Tecnico Ufficiale Game Shakers</p>
     </header>
 
     <div class="container">
-        <!-- Status Server -->
         <div class="status-bar">
             <div class="status-dot"></div>
             <span id="status-text"><strong>STATO SISTEMI:</strong> TUTTI I SERVER SONO OPERATIVI</span>
@@ -219,64 +247,63 @@
             </div>
         </div>
 
-        <!-- FAQ Area -->
         <div class="faq-section">
-            <h2 style="font-family: 'Bangers'; font-size: 2.5rem; color: var(--neon-yellow);" id="faq-title">DOMANDE FREQUENTI</h2>
+            <h2 id="faq-title" style="font-family: 'Bangers'; font-size: 2.5rem; color: var(--neon-yellow);">DOMANDE FREQUENTI</h2>
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Il gioco si blocca all'avvio, cosa faccio?</span>
+                    <span id="faq-q1">Il gioco si blocca all'avvio, cosa faccio?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Assicurati di avere l'ultima versione del gioco installata e che il tuo dispositivo abbia almeno 2GB di RAM libera. Prova a svuotare la cache dalle impostazioni del telefono.</p>
+                    <p id="faq-a1">Assicurati di avere l'ultima versione del gioco installata e che il tuo dispositivo abbia almeno 2GB di RAM libera. Prova a svuotare la cache dalle impostazioni del telefono.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Come posso recuperare le monete acquistate?</span>
+                    <span id="faq-q2">Come posso recuperare le monete acquistate?</span>
                     <span>+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Vai nelle impostazioni del gioco e clicca su "Ripristina Acquisti". Se il problema persiste, inviaci la ricevuta dello store tramite il modulo qui sotto.</p>
+                    <p id="faq-a2">Vai nelle impostazioni del gioco e clicca su "Ripristina Acquisti". Se il problema persiste, inviaci la ricevuta dello store tramite il modulo qui sotto.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Support Form -->
         <div class="contact-form">
-            <h2 style="font-family: 'Bangers'; font-size: 2.5rem; margin-top: 0;" id="form-title">APRI UN TICKET</h2>
-            <form onsubmit="event.preventDefault(); alert('Ticket inviato con successo!');">
+            <h2 id="form-title" style="font-family: 'Bangers'; font-size: 2.5rem; margin-top: 0;">APRI UN TICKET</h2>
+            <form onsubmit="event.preventDefault(); alert('Richiesta Inviata / Request Sent!');">
                 <div class="form-group">
                     <label id="label-name">Nome Completo</label>
-                    <input type="text" placeholder="Es. Lollo" required>
+                    <input type="text" id="input-name" placeholder="Es. Lollo" required>
                 </div>
                 <div class="form-group">
                     <label id="label-email">Email di Contatto</label>
-                    <input type="email" placeholder="nome@esempio.com" required>
+                    <input type="email" id="input-email" placeholder="nome@esempio.com" required>
                 </div>
                 <div class="form-group">
                     <label id="label-issue">Tipo di Problema</label>
-                    <select>
-                        <option>Problema Tecnico</option>
-                        <option>Acquisti in-game</option>
-                        <option>Segnalazione Giocatore</option>
-                        <option>Altro</option>
+                    <select id="select-issue">
+                        <option class="opt-1">Problema Tecnico</option>
+                        <option class="opt-2">Acquisti in-game</option>
+                        <option class="opt-3">Segnalazione Giocatore</option>
+                        <option class="opt-4">Altro</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label id="label-msg">Messaggio</label>
-                    <textarea rows="5" placeholder="Descrivi il tuo problema in dettaglio..."></textarea>
+                    <textarea id="input-msg" rows="5" placeholder="Descrivi il tuo problema in dettaglio..."></textarea>
                 </div>
                 <button type="submit" id="btn-submit">INVIA RICHIESTA</button>
             </form>
         </div>
 
-        <a href="index.html" class="back-link">← Torna alla Home</a>
+        <a href="index.html" class="back-link" id="back-home">← Torna alla Home</a>
     </div>
 
     <script>
+        // Logica FAQ
         function toggleFaq(element) {
             const answer = element.nextElementSibling;
             if (answer.style.maxHeight) {
@@ -287,6 +314,103 @@
                 element.querySelector('span:last-child').innerText = "-";
             }
         }
+
+        // --- SISTEMA DI TRADUZIONE ---
+        const translations = {
+            it: {
+                mainTitle: "CENTRO ASSISTENZA",
+                subTitle: "Supporto Tecnico Ufficiale Game Shakers",
+                status: "<strong>STATO SISTEMI:</strong> TUTTI I SERVER SONO OPERATIVI",
+                card1T: "Documentazione",
+                card1X: "Consulta le guide ufficiali per Sky Whale, Octopie e gli altri titoli per risolvere problemi di gameplay.",
+                card2T: "Segnala un Bug",
+                card2X: "Hai trovato un glitch? Inviaci uno screenshot e i dettagli del tuo dispositivo per aiutarci a risolverlo.",
+                card3T: "Account & Privacy",
+                card3X: "Gestisci i tuoi dati o richiedi il recupero dei salvataggi cloud collegati al tuo profilo.",
+                faqTitle: "DOMANDE FREQUENTI",
+                faqQ1: "Il gioco si blocca all'avvio, cosa faccio?",
+                faqA1: "Assicurati di avere l'ultima versione del gioco installata e che il tuo dispositivo abbia almeno 2GB di RAM libera. Prova a svuotare la cache dalle impostazioni del telefono.",
+                faqQ2: "Come posso recuperare le monete acquistate?",
+                faqA2: "Vai nelle impostazioni del gioco e clicca su 'Ripristina Acquisti'. Se il problema persiste, inviaci la ricevuta dello store tramite il modulo qui sotto.",
+                formTitle: "APRI UN TICKET",
+                labelName: "Nome Completo",
+                labelEmail: "Email di Contatto",
+                labelIssue: "Tipo di Problema",
+                labelMsg: "Messaggio",
+                btnSubmit: "INVIA RICHIESTA",
+                backHome: "← Torna alla Home",
+                opt1: "Problema Tecnico",
+                opt2: "Acquisti in-game",
+                opt3: "Segnalazione Giocatore",
+                opt4: "Altro",
+                placeholderMsg: "Descrivi il tuo problema in dettaglio..."
+            },
+            en: {
+                mainTitle: "SUPPORT CENTER",
+                subTitle: "Official Game Shakers Technical Support",
+                status: "<strong>SYSTEM STATUS:</strong> ALL SERVERS ARE OPERATIONAL",
+                card1T: "Documentation",
+                card1X: "Check official guides for Sky Whale, Octopie and other titles to solve gameplay issues.",
+                card2T: "Report a Bug",
+                card2X: "Found a glitch? Send us a screenshot and your device details to help us fix it.",
+                card3T: "Account & Privacy",
+                card3X: "Manage your data or request a recovery for cloud saves linked to your profile.",
+                faqTitle: "FREQUENTLY ASKED QUESTIONS",
+                faqQ1: "Game crashes on startup, what should I do?",
+                faqA1: "Make sure you have the latest version installed and at least 2GB of free RAM. Try clearing the cache in your phone settings.",
+                faqQ2: "How can I recover my purchased coins?",
+                faqA2: "Go to game settings and click 'Restore Purchases'. If the issue persists, send us the receipt through the form below.",
+                formTitle: "OPEN A TICKET",
+                labelName: "Full Name",
+                labelEmail: "Contact Email",
+                labelIssue: "Issue Type",
+                labelMsg: "Message",
+                btnSubmit: "SEND REQUEST",
+                backHome: "← Back to Home",
+                opt1: "Technical Issue",
+                opt2: "In-game Purchases",
+                opt3: "Player Report",
+                opt4: "Other",
+                placeholderMsg: "Describe your issue in detail..."
+            }
+        };
+
+        const langSelect = document.getElementById('lang-select');
+
+        langSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            const t = translations[lang];
+
+            // Aggiornamento testi
+            document.getElementById('main-title').innerText = t.mainTitle;
+            document.getElementById('sub-title').innerText = t.subTitle;
+            document.getElementById('status-text').innerHTML = t.status;
+            document.getElementById('card-1-title').innerText = t.card1T;
+            document.getElementById('card-1-text').innerText = t.card1X;
+            document.getElementById('card-2-title').innerText = t.card2T;
+            document.getElementById('card-2-text').innerText = t.card2X;
+            document.getElementById('card-3-title').innerText = t.card3T;
+            document.getElementById('card-3-text').innerText = t.card3X;
+            document.getElementById('faq-title').innerText = t.faqTitle;
+            document.getElementById('faq-q1').innerText = t.faqQ1;
+            document.getElementById('faq-a1').innerText = t.faqA1;
+            document.getElementById('faq-q2').innerText = t.faqQ2;
+            document.getElementById('faq-a2').innerText = t.faqA2;
+            document.getElementById('form-title').innerText = t.formTitle;
+            document.getElementById('label-name').innerText = t.labelName;
+            document.getElementById('label-email').innerText = t.labelEmail;
+            document.getElementById('label-issue').innerText = t.labelIssue;
+            document.getElementById('label-msg').innerText = t.labelMsg;
+            document.getElementById('btn-submit').innerText = t.btnSubmit;
+            document.getElementById('back-home').innerText = t.backHome;
+            document.getElementById('input-msg').placeholder = t.placeholderMsg;
+
+            // Aggiornamento opzioni select
+            document.querySelector('.opt-1').innerText = t.opt1;
+            document.querySelector('.opt-2').innerText = t.opt2;
+            document.querySelector('.opt-3').innerText = t.opt3;
+            document.querySelector('.opt-4').innerText = t.opt4;
+        });
     </script>
 </body>
 </html>
